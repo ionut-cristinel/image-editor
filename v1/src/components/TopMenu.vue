@@ -47,6 +47,15 @@
         components: {
             Button
         },
+        data(){
+            return {
+                serverRoutes: {
+                    filters: '/filters',
+                    size: '/size'
+                },
+                serverDomain: 'http://localhost:3030'
+            }
+        },
         computed: {
             ...mapGetters([
                 'size',
@@ -67,7 +76,11 @@
             },
             upload(){
                 const [img] = this.$refs.uploadImage.files
-                this.changeImageSrc({src: URL.createObjectURL(img)})
+                this.changeImageSrc({
+                    src: URL.createObjectURL(img),
+                    serverDomain: this.serverDomain,
+                    serverRoutes: this.serverRoutes
+                })
             },
             ...mapActions([
                 'updateDownloadedImageName',

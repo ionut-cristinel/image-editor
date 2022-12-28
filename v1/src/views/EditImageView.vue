@@ -2,7 +2,7 @@
 
   <div class="container">
 
-    <TopMenu @download="download" @clear-filters="clearFilters"></TopMenu>
+    <TopMenu @download="download" @clear-filters="resetFilters"></TopMenu>
     
     <div class="row">
       <div class="col-md-2">
@@ -149,6 +149,13 @@
             })
           })
         )
+      },
+      resetFilters()
+      {
+        this.clearFilters({
+          serverDomain: this.serverDomain,
+          serverRoutes: this.serverRoutes
+        })
       },
       ...mapActions([
         'loadImage',

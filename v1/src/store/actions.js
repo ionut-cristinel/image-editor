@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import {
     LOAD_DATA,
     LOAD_IMAGE,
@@ -10,7 +12,6 @@ import {
     UPDATE_FILTER
 } from './mutation-types'
 
-import { filters, initial, size } from './tmp'
 import { copy } from '../utils'
 
 
@@ -27,11 +28,19 @@ const actions =
     {
         context.commit(LOAD_IMAGE, payload)
     },
-    clearFilters(context)
+    clearFilters(context, payload)
     {
-        context.commit(RESET_IMAGE_FILTERS, {value: initial})
-        context.commit(RESET_IMAGE_SIZE, size)
-        context.commit(CLEAR_FILTERS, {filters: copy(filters)})
+        axios.all([
+            axios.get(payload.serverDomain + payload.serverRoutes.filters), 
+            axios.get(payload.serverDomain + payload.serverRoutes.size)
+          ]).then(axios.spread((...responses) => {
+              const [filters, size] = responses;
+              
+              context.commit(RESET_IMAGE_FILTERS, {value: 'initial'})
+              context.commit(RESET_IMAGE_SIZE, size.data)
+              context.commit(CLEAR_FILTERS, {filters: copy(filters.data)})
+            })
+        )
     },
     applyFilters(context, payload)
     {
@@ -47,8 +56,11 @@ const actions =
     },
     changeImageSrc(context, payload)
     {
-        context.commit(CHANGE_IMAGE_SRC, payload)
-        context.dispatch('clearFilters')
+        context.commit(CHANGE_IMAGE_SRC, {src: payload.src})
+        context.dispatch('clearFilters', {
+            serverDomain: payload.serverDomain,
+            serverRoutes: payload.serverRoutes
+        })
     },
     updateFilterValue(context, payload)
     {
