@@ -1,7 +1,7 @@
 # Photoshop dupa o luna in Vaslui :hand_over_mouth:
 
 
-![Image Editor, print screen](/src/assets/image-editor.png)
+![Image Editor, print screen](/v1/src/assets/image-editor.png)
 
 <br/>
 
