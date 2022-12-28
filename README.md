@@ -1,4 +1,4 @@
-# Photoshop dupa o luna in Vaslui =))
+# Photoshop dupa o luna in Vaslui :upside_down_face:
 
 
 ![Image Editor, print screen](/v1/src/assets/image-editor.png)
