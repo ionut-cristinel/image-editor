@@ -1,4 +1,4 @@
-# image-editor
+# Photoshop dupa o luna in Vaslui =))
 Image Editor
 
 ```
