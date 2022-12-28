@@ -3,17 +3,18 @@
 
 ![Image Editor, print screen](/v1/src/assets/image-editor.png)
 
+<br/>
 
-## Utilizare:
+### Utilizare:
 
 ```
     npm install
     npm run serve
     npm run server
 ```
+<br/>
 
-
-Functionalitati:
+### Functionalitati:
 
 - upload imagini
 - aplicare filtre
