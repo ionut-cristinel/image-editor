@@ -1,8 +1,10 @@
 # Photoshop dupa o luna in Vaslui =))
 
-## Image Editor
 
 ![Image Editor, print screen](/v1/src/assets/image-editor.png)
+
+
+## Utilizare:
 
 ```
     npm install
@@ -13,8 +15,7 @@
 
 Functionalitati:
 
-- incarcare imagini
+- upload imagini
 - aplicare filtre
-- redimensionare imagine
+- resize imagine
 - descarcare imagine
-
