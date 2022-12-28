@@ -2,6 +2,7 @@
 
 ## Image Editor
 
+![Image Editor, print screen](/v1/src/assets/image-editor.png)
 
 ```
     npm install
